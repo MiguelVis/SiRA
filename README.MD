@@ -25,7 +25,7 @@ or:
 REST Controllers
 ----------------
 
-Controllers are defined in the cfg.php file, and take the form:
+Controllers are defined in the config.php file, and take the form:
 
 ```php
 $CFG_CONTROLLERS = array(

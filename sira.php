@@ -17,8 +17,8 @@
 	// 28 Dec 2016 : mgl : Start.
 	
 	// Dependencies
-	require_once 'cfg/cfg.php';
-	require_once 'lib/common.php';
+	require_once 'sira/config.php';
+	require_once 'sira/common.php';
 	
 	// Request data: method, resource, params.
 	$req_method   = strtolower($_SERVER['REQUEST_METHOD']);
