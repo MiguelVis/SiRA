@@ -1,0 +1,12 @@
+# +------------------------+
+# | SiRA : Simple REST Api |
+# +------------------------+
+#
+# Prevent directory listing:
+Options -Indexes
+# Filter all requests via api.php
+RewriteEngine On
+RewriteBase /sira/
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ sira.php?resource=$1 [L,QSA]
