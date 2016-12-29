@@ -4,7 +4,7 @@
 #
 # Prevent directory listing:
 Options -Indexes
-# Filter all requests via api.php
+# Filter all requests via sira.php
 RewriteEngine On
 RewriteBase /sira/
 RewriteCond %{REQUEST_FILENAME} !-d
