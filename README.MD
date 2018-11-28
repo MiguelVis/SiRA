@@ -22,13 +22,19 @@ or:
 `http://www.myhost.com/api/v1/customer?name=FloppySoftware`
 
 
-REST Controllers
-----------------
+Configuration
+-------------
 
-Controllers are defined in the config.php file, and take the form:
+SiRA configuration is defined in the config.php file - ie:
 
 ```php
-$CFG_CONTROLLERS = array(
+$CFG_SIRA = array(
+	'http_basic_auth' => true,
+	'users' => array(
+		'user' => 'password',
+		'anotherUser' => 'anotherPassword'
+	),
+	'resources' => array(
 		'test' => array(
 			'folder' => 'res_test',
 			'get'    => 'test_get',
@@ -40,7 +46,48 @@ $CFG_CONTROLLERS = array(
 			'folder' => 'res_info',
 			'get'    => 'info_get'
 		)
-	);
+	)
+);
+```
+
+
+HTTP Basic Authentication
+-------------------------
+
+SiRA supports HTTP Basic authentication. Just enable it in the configuration - ie:
+
+```php
+$CFG_SIRA = array(
+	'http_basic_auth' => true,
+	'users' => array(
+		'user' => 'password',
+		'anotherUser' => 'anotherPassword'
+	)
+);
+```
+
+
+REST Controllers
+----------------
+
+Resource controllers are defined in the configuration, and take the form:
+
+```php
+$CFG_SIRA = array(
+	'resources' => array(
+		'test' => array(
+			'folder' => 'res_test',
+			'get'    => 'test_get',
+			'put'    => 'test_put',
+			'post'   => 'test_post',
+			'delete' => 'test_delete'
+		),
+		'info' => array(
+			'folder' => 'res_info',
+			'get'    => 'info_get'
+		)
+	)
+);	
 ```
 
 As you can see, `test` and `info` are two resources. The field `folder` defines the directory
@@ -65,14 +112,14 @@ sira/
 In the test_get.php file, we will have something like this:
 
 ```php
-	function test_get($params)
-	{
-		$reply = array(
-			'reply' => 'Hello from test_get()'
-		);
-		
-		return $reply;
-	}
+function test_get($params)
+{
+	$reply = array(
+		'reply' => 'Hello from test_get()'
+	);
+	
+	return $reply;
+}
 ```
 
 And so on.
@@ -81,7 +128,7 @@ And so on.
 Author
 ------
 
-(c) 2016 Miguel Garcia / FloppySoftware.
+(c) 2016-2018 Miguel Garcia / FloppySoftware.
 
 http://www.floppysoftware.es
 

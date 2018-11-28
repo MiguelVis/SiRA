@@ -5,7 +5,7 @@
 	//
 	// Info resource: get.
 	//
-	// (c) 2016 Miguel Garcia / FloppySoftware.
+	// (c) 2016-2018 Miguel Garcia / FloppySoftware.
 	//
 	// http://www.floppysoftware.es
 	// floppysoftware@gmail.com
